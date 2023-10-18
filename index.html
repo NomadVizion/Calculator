@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        /* Add some basic styling */
+        #calculator {
+            width: 240px;
+            background-color: #000;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .button {
+            width: 60px;
+            height: 60px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            margin: 5px;
+        }
+        #output {
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            font-size: 24px;
+            padding: 10px;
+            border: none;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div id="calculator">
+    <input type="text" id="output">
+    <br>
+    <button class="button" onclick="appendToOutput('7')">7</button>
+    <button class="button" onclick="appendToOutput('8')">8</button>
+    <button class="button" onclick="appendToOutput('9')">9</button>
+    <button class="button" onclick="performOperation('/')">/</button>
+    <br>
+    <!-- ... repeat for other rows ... -->
+    <button class="button" onclick="performOperation('=')">=</button>
+</div>
+
+<script>
+    let output = document.getElementById('output');
+
+    function appendToOutput(value) {
+        output.value += value;
+    }
+
+    function performOperation(op) {
+        if(op === '=') {
+            output.value = eval(output.value);
+        } else {
+            output.value += op;
+        }
+    }
+</script>
+</body>
+</html>
